@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to move your Claude projects to ChatGPT</title>
+  <meta name="description" content="A practical guide to migrating a Claude.ai project into ChatGPT: how to export your conversations, knowledge and artifacts, how to load them into a ChatGPT project, and what does and does not carry over." />
+  <link rel="canonical" href="https://sharangan9812010.github.io/claude-backup-site/move-claude-projects-to-chatgpt.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #FBFAF8;
+      --ink: #1F2933;
+      --muted: #5B6672;
+      --accent: #0F6B5C;
+      --hairline: #E3E0DA;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 5rem;
+    }
+    h1, h2, h3 {
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    h1 { font-size: 2rem; font-weight: 700; margin: 0 0 .35rem; }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 2.4rem 0 .6rem; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 1.8rem 0 .4rem; }
+    .meta { color: var(--muted); font-size: .95rem; margin-bottom: 2rem; }
+    .summary {
+      border-left: 3px solid var(--accent);
+      background: #F1F0EC;
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 0 0 2.25rem;
+    }
+    .summary p { margin: .4rem 0; }
+    .summary strong { color: var(--accent); }
+    p { margin: .75rem 0; }
+    ul, ol { padding-left: 1.25rem; margin: .5rem 0 1rem; }
+    li { margin: .35rem 0; }
+    hr { border: none; border-top: 1px solid var(--hairline); margin: 2.5rem 0; }
+    a { color: var(--accent); }
+    .footer { color: var(--muted); font-size: .9rem; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>How to move your Claude projects to ChatGPT</h1>
+    <p class="meta">Last updated: 17 July 2026</p>
+
+    <div class="summary">
+      <p><strong>The short version:</strong> there is no import button on either side. The working method is to export your Claude project as plain files, create a project in ChatGPT, paste your custom instructions across, and upload the transcripts, knowledge files and artifacts as project files. Your documents and instructions carry over well. Conversation continuity does not: ChatGPT can read your old chats as reference material, but it will not remember them the way Claude did.</p>
+    </div>
+
+    <p>People switch tools for all sorts of reasons: a workplace standardises on one vendor, a subscription lapses, or you simply prefer the other model for a particular job. Whatever the reason, the work you built up in a Claude project does not have to stay behind. Here is the process that actually works, and a candid account of what survives the move.</p>
+
+    <h2>Step 1: Get your Claude project out as files</h2>
+    <p>ChatGPT can only take what you can upload or paste, so everything starts with an export. Two routes:</p>
+    <ul>
+      <li><strong>By hand.</strong> Copy each conversation into a text or Markdown file, download or copy each artifact, and save each knowledge file. Workable for a small project; tedious beyond a handful of conversations. Watch out for long chats, which claude.ai loads in sections as you scroll, so a single select-all can miss the start.</li>
+      <li><strong>With an extension.</strong> <a href="https://chromewebstore.google.com/detail/backup-for-claude-export/bajcodengdangeflpfaghpommlponobd" rel="noopener">Backup for Claude</a> (ours) exports a project in a few clicks: Markdown transcripts, the project's instructions and knowledge files, and each artifact as its own file. The free tier covers a single project as Markdown, which is often enough for a migration.</li>
+    </ul>
+    <p>Anthropic's official account export also exists (Settings, then Privacy), but it produces one JSON dump of your entire account rather than per-project files, which makes it the awkward option for a migration. Our <a href="how-to-export-claude-projects.html">guide to every export method</a> compares all three properly.</p>
+
+    <h2>What you end up with</h2>
+    <p>After a full export, a project is typically a folder like this:</p>
+    <ul>
+      <li><strong>A Markdown transcript</strong> of the project's conversations, readable anywhere.</li>
+      <li><strong>The project's custom instructions</strong> as text.</li>
+      <li><strong>Knowledge files</strong>, the documents you had uploaded to the project.</li>
+      <li><strong>Artifacts</strong> as individual files: the HTML pages, scripts, documents and diagrams Claude produced, in their final versions.</li>
+      <li>Possibly <strong>a JSON file</strong> with the complete structured data, useful as an archive but not needed for ChatGPT.</li>
+    </ul>
+
+    <h2>Step 2: Create a project in ChatGPT</h2>
+    <p>ChatGPT has its own projects feature: a workspace that groups chats and lets you attach files and instructions that apply to every conversation inside it. In ChatGPT, create a new project and name it after the Claude project you are moving. This is the natural landing place because it mirrors what a Claude project was: shared context plus a set of related conversations.</p>
+
+    <h2>Step 3: Load your Claude context in</h2>
+    <ol>
+      <li><strong>Instructions first.</strong> Open your ChatGPT project's instructions and paste in the custom instructions from your Claude export. Read them once before saving: if they reference Claude by name or lean on Claude-specific behaviour, adjust the wording.</li>
+      <li><strong>Upload the documents.</strong> Add your knowledge files to the ChatGPT project as files. This is the highest-value part of the migration, since these documents were the backbone of the Claude project's context.</li>
+      <li><strong>Upload the artifacts you still need.</strong> Code files, drafts and documents Claude produced can go in as project files too. Skip anything obsolete; a migration is a decent moment to prune.</li>
+      <li><strong>Bring transcripts in selectively.</strong> For history that still matters, upload the Markdown transcript as a project file, or paste the relevant conversation into a new chat and ask ChatGPT to treat it as background. For a short, important thread, pasting works better because the content sits directly in the conversation rather than behind file retrieval.</li>
+    </ol>
+    <p>File count and size limits on ChatGPT projects depend on your plan, so a very large Claude project may need trimming down to the documents that matter.</p>
+
+    <h2>What transfers well</h2>
+    <ul>
+      <li><strong>Knowledge files.</strong> They were ordinary documents before Claude, and they are ordinary documents after. Near-lossless.</li>
+      <li><strong>Custom instructions.</strong> Usually a light rewrite at most.</li>
+      <li><strong>Artifacts as working files.</strong> Code is code; an .html file or Python script works the same wherever it lives. ChatGPT can read and continue editing them.</li>
+      <li><strong>Transcripts as reference.</strong> ChatGPT can read your old conversations and answer questions about them, summarise decisions, or pick up a thread you paste in.</li>
+    </ul>
+
+    <h2>What does not transfer</h2>
+    <ul>
+      <li><strong>Continuity.</strong> ChatGPT did not live those conversations. It reads them as documents, which is not the same as having had them. Expect to re-establish context in the first few chats.</li>
+      <li><strong>Conversation structure.</strong> Edits, retries and branches from Claude flatten into linear text in a transcript.</li>
+      <li><strong>Claude's in-chat rendering.</strong> Artifacts stop being live, editable panels and become plain files. The content survives; the interface around it does not.</li>
+      <li><strong>Model behaviour.</strong> Prompts tuned to Claude's style can land differently with ChatGPT. Treat the first week as a settling-in period and adjust your instructions as needed.</li>
+      <li><strong>Anything you did not export.</strong> The move copies files; it does not link accounts. Whatever you leave out stays behind in Claude.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Can ChatGPT import a Claude export directly?</h3>
+    <p>There is no import feature for Claude data on ChatGPT's side, and no export-to-ChatGPT feature on Claude's. The migration is manual by nature: you export files from Claude and upload or paste them into ChatGPT. That is exactly why exporting to plain formats like Markdown matters, since plain files can move anywhere.</p>
+
+    <h3>Will ChatGPT continue my Claude conversations?</h3>
+    <p>Partly. If you paste a conversation in and ask ChatGPT to continue it, it will pick up the thread from the text you provided. What it cannot do is remember the conversation the way Claude did, and any nuance that never made it into words is gone. For long-running work, expect the first few exchanges to involve re-establishing context.</p>
+
+    <h3>Do Claude artifacts work in ChatGPT?</h3>
+    <p>As files, yes. An exported artifact is an ordinary file, so ChatGPT can read it, edit it, and build on it like any uploaded document. What you lose is Claude's artifact panel, the live preview and revision interface around the content. The content itself carries over intact provided you exported the final version of each artifact.</p>
+
+    <hr />
+    <p class="footer">Related: <a href="how-to-export-claude-projects.html">How to export your Claude projects: every method (2026)</a> · <a href="index.html">Privacy policy</a><br />
+    Backup for Claude is an independent tool. It is not affiliated with, endorsed by, or sponsored by Anthropic or OpenAI. Claude is a trademark of Anthropic, PBC. ChatGPT is a trademark of OpenAI.</p>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can ChatGPT import a Claude export directly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There is no import feature for Claude data on ChatGPT's side, and no export-to-ChatGPT feature on Claude's. The migration is manual by nature: you export files from Claude and upload or paste them into ChatGPT. Exporting to plain formats like Markdown matters because plain files can move anywhere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will ChatGPT continue my Claude conversations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Partly. If you paste a conversation in and ask ChatGPT to continue it, it will pick up the thread from the text you provided. It cannot remember the conversation the way Claude did, and any nuance that never made it into words is gone. For long-running work, expect the first few exchanges to involve re-establishing context."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do Claude artifacts work in ChatGPT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As files, yes. An exported artifact is an ordinary file, so ChatGPT can read it, edit it, and build on it like any uploaded document. What you lose is Claude's artifact panel, the live preview and revision interface around the content. The content itself carries over intact provided you exported the final version of each artifact."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>

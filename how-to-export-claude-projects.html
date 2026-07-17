@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to export your Claude projects: every method (2026)</title>
+  <meta name="description" content="Every way to export a Claude.ai project in 2026: Anthropic's built-in account export, manual copy and paste, and the Backup for Claude extension. What each method gives you and where it falls short." />
+  <link rel="canonical" href="https://sharangan9812010.github.io/claude-backup-site/how-to-export-claude-projects.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #FBFAF8;
+      --ink: #1F2933;
+      --muted: #5B6672;
+      --accent: #0F6B5C;
+      --hairline: #E3E0DA;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 5rem;
+    }
+    h1, h2, h3 {
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    h1 { font-size: 2rem; font-weight: 700; margin: 0 0 .35rem; }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 2.4rem 0 .6rem; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 1.8rem 0 .4rem; }
+    .meta { color: var(--muted); font-size: .95rem; margin-bottom: 2rem; }
+    .summary {
+      border-left: 3px solid var(--accent);
+      background: #F1F0EC;
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 0 0 2.25rem;
+    }
+    .summary p { margin: .4rem 0; }
+    .summary strong { color: var(--accent); }
+    p { margin: .75rem 0; }
+    ul, ol { padding-left: 1.25rem; margin: .5rem 0 1rem; }
+    li { margin: .35rem 0; }
+    hr { border: none; border-top: 1px solid var(--hairline); margin: 2.5rem 0; }
+    a { color: var(--accent); }
+    .footer { color: var(--muted); font-size: .9rem; margin-top: 3rem; }
+    .tablewrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+    table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+    th, td { border: 1px solid var(--hairline); padding: .5rem .65rem; text-align: left; vertical-align: top; }
+    th { background: #F1F0EC; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>How to export your Claude projects: every method (2026)</h1>
+    <p class="meta">Last updated: 17 July 2026</p>
+
+    <div class="summary">
+      <p><strong>The short version:</strong> Claude.ai has no per-project export button. Your options are Anthropic's account-wide data export (one big dump of everything, in JSON), copying things out by hand (fine for a single short chat), or a browser extension that exports one project at a time as readable files. Each is covered below, including where it falls short.</p>
+    </div>
+
+    <p>If you keep real work in Claude Projects, you eventually want a copy of it on your own machine: the conversations, the project knowledge files, the custom instructions, and the artifacts Claude has written for you. Perhaps you are archiving finished work, moving to another tool, or you simply do not want months of thinking to live only inside one vendor's account. This guide covers every way to get that copy, honestly, including the limits of each.</p>
+
+    <h2>Method 1: Anthropic's built-in account export</h2>
+    <p>Anthropic provides an official export of your data. To use it, open claude.ai, click your initials in the corner, choose <strong>Settings</strong>, then <strong>Privacy</strong>, and look for the <strong>Export data</strong> button. The exact menu wording moves around as Anthropic updates the interface, but the export lives in your account settings.</p>
+    <p>After you request it, Anthropic emails you a download link. What arrives is a zip of JSON files covering your whole account, chiefly your conversation history.</p>
+    <p><strong>What it is good for:</strong> a complete, official record of your account, straight from Anthropic. If you want a legal-grade copy of everything, start here. It is free and takes two clicks plus a wait for the email.</p>
+    <p><strong>Where it falls short:</strong></p>
+    <ul>
+      <li>It is one whole-account dump. You cannot export a single project, and nothing is organised by project. Finding one project's conversations means digging through the JSON yourself.</li>
+      <li>It is JSON built for machines, not reading. There are no Markdown transcripts you can open and skim.</li>
+      <li>Artifacts are not saved as separate, usable files. The HTML page or script Claude wrote for you stays buried inside conversation data rather than arriving as an .html or .py file.</li>
+      <li>You wait for an email rather than getting the file straight away.</li>
+    </ul>
+
+    <h2>Method 2: Copy and paste by hand</h2>
+    <p>The zero-tooling option: open each conversation, select the text, and paste it into a document. Open each artifact, copy its contents, and save it as a file with the right extension. Download each knowledge file, or copy its text out of the project's knowledge panel.</p>
+    <p><strong>When it is fine:</strong> you need one conversation, or one artifact, right now. For a single short chat this is genuinely the fastest method, and it needs no tools and no trust in anything third party.</p>
+    <p><strong>When it breaks down:</strong></p>
+    <ul>
+      <li>Volume. A project with thirty conversations and a dozen artifacts turns into an afternoon of clicking, and in practice things get missed.</li>
+      <li>Long chats. Claude.ai loads long conversations in sections as you scroll, so a single select-all often silently misses earlier messages.</li>
+      <li>Formatting. Code blocks, tables and lists tend to lose their structure on the way into your document.</li>
+      <li>Artifacts that went through several revisions: you have to check you copied the final version of each one.</li>
+    </ul>
+
+    <h2>Method 3: The Backup for Claude extension</h2>
+    <p>Full disclosure: this is our extension, and this site is its home. With that said, here is plainly what it does and does not do.</p>
+    <p><a href="https://chromewebstore.google.com/detail/backup-for-claude-export/bajcodengdangeflpfaghpommlponobd" rel="noopener">Backup for Claude</a> is a Chrome extension that exports one Claude project at a time as files on your computer. You open claude.ai, click the extension, pick a project, and it saves:</p>
+    <ul>
+      <li>a Markdown transcript of every conversation in the project, readable in any text editor,</li>
+      <li>a JSON file with the complete structured data, including edits and branches,</li>
+      <li>the project's custom instructions and knowledge files,</li>
+      <li>each artifact as its own file with the right extension, an .html file as .html, a Python script as .py, in their final versions.</li>
+    </ul>
+    <p>Everything runs inside your browser using the Claude session you are already signed in with. There is no server behind it and your data is never uploaded anywhere, which is also the promise in our <a href="index.html">privacy policy</a>.</p>
+    <p><strong>The honest limits:</strong></p>
+    <ul>
+      <li>The free version exports a single project to Markdown. The one-time Pro upgrade adds JSON, artifact files, and backing up all projects in one go.</li>
+      <li>It is Chrome only (and Chromium-based browsers that accept Chrome extensions).</li>
+      <li>It reads the same data your browser already loads, through claude.ai's own interface. That interface is not officially documented, so when Anthropic changes it the extension needs an update. We maintain it actively, but that dependency is real and you should know about it.</li>
+    </ul>
+
+    <h2>Comparison at a glance</h2>
+    <div class="tablewrap">
+      <table>
+        <tr>
+          <th></th>
+          <th>Anthropic account export</th>
+          <th>Copy and paste</th>
+          <th>Backup for Claude</th>
+        </tr>
+        <tr>
+          <th>Scope</th>
+          <td>Whole account only</td>
+          <td>Whatever you copy</td>
+          <td>Per project, or all projects (Pro)</td>
+        </tr>
+        <tr>
+          <th>Format</th>
+          <td>JSON dump</td>
+          <td>Whatever you paste into</td>
+          <td>Markdown, JSON (Pro)</td>
+        </tr>
+        <tr>
+          <th>Artifacts as files</th>
+          <td>No</td>
+          <td>One at a time, by hand</td>
+          <td>Yes (Pro), final versions</td>
+        </tr>
+        <tr>
+          <th>Knowledge files</th>
+          <td>Not as separate files</td>
+          <td>One at a time, by hand</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <th>Effort</th>
+          <td>Two clicks, then wait for an email</td>
+          <td>High, grows with project size</td>
+          <td>A few clicks, immediate</td>
+        </tr>
+        <tr>
+          <th>Cost</th>
+          <td>Free</td>
+          <td>Free</td>
+          <td>Free tier; one-time payment for Pro</td>
+        </tr>
+        <tr>
+          <th>Official</th>
+          <td>Yes</td>
+          <td>n/a</td>
+          <td>No, independent tool</td>
+        </tr>
+      </table>
+    </div>
+
+    <h2>Which should you use?</h2>
+    <ul>
+      <li><strong>You want everything, officially, and do not mind JSON:</strong> use Anthropic's account export. It costs nothing and comes straight from the source.</li>
+      <li><strong>You need one conversation or one artifact:</strong> copy and paste. Do not install anything for a one-off.</li>
+      <li><strong>You want a specific project as readable files, with its artifacts and knowledge intact:</strong> that is the gap the extension exists to fill.</li>
+    </ul>
+    <p>These also combine sensibly: an occasional account export as a belt-and-braces archive, plus per-project exports for the work you actually revisit. And if your goal is moving a project into another tool, we have a separate guide on <a href="move-claude-projects-to-chatgpt.html">moving your Claude projects to ChatGPT</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Does Claude have a project export?</h3>
+    <p>Not per project. Claude.ai offers an account-wide export in Settings under Privacy, which sends you a zip of JSON files covering your whole account. There is no built-in button to export a single project or to get readable Markdown files. For per-project export you need to copy things out manually or use a browser extension.</p>
+
+    <h3>How do I save Claude artifacts as files?</h3>
+    <p>Inside claude.ai you can open an artifact and download or copy it, one artifact at a time. That works fine for one or two. For a whole project's artifacts in one go, saved with correct file extensions in their final versions, use <a href="https://chromewebstore.google.com/detail/backup-for-claude-export/bajcodengdangeflpfaghpommlponobd" rel="noopener">Backup for Claude</a>, which writes them into an artifacts folder alongside the transcripts. The official account export does not produce separate artifact files.</p>
+
+    <h3>Can I export a single conversation?</h3>
+    <p>There is no one-click single-conversation export in any method, ours included. Your practical options: copy and paste the conversation (best for short chats, but note that very long chats load in sections as you scroll, so check you got all of it), or export the project that contains it and take the conversation from the Markdown transcript. The account export also contains every conversation, but inside a JSON dump you would need to search through.</p>
+
+    <hr />
+    <p class="footer">Related: <a href="move-claude-projects-to-chatgpt.html">How to move your Claude projects to ChatGPT</a> · <a href="index.html">Privacy policy</a><br />
+    Backup for Claude is an independent tool. It is not affiliated with, endorsed by, or sponsored by Anthropic. Claude is a trademark of Anthropic, PBC.</p>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Claude have a project export?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not per project. Claude.ai offers an account-wide export in Settings under Privacy, which sends you a zip of JSON files covering your whole account. There is no built-in button to export a single project or to get readable Markdown files. For per-project export you need to copy things out manually or use a browser extension."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I save Claude artifacts as files?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Inside claude.ai you can open an artifact and download or copy it, one artifact at a time. For a whole project's artifacts in one go, saved with correct file extensions in their final versions, the Backup for Claude extension writes them into an artifacts folder alongside the transcripts. The official account export does not produce separate artifact files."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export a single conversation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There is no one-click single-conversation export in any method. Your practical options are copying and pasting the conversation, which suits short chats, or exporting the project that contains it and taking the conversation from the Markdown transcript. The account export also contains every conversation, but inside a JSON dump you would need to search through."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
