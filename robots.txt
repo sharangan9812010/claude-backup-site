@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sharangan9812010.github.io/claude-backup-site/sitemap.xml
