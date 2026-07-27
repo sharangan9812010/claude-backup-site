@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude export and backup tools compared (July 2026)</title>
+  <meta name="description" content="An honest comparison of every Claude.ai export and backup extension: AI Exporter, AI Chat Exporter, Claude Chat Backup, open source options, and Backup for Claude. Facts from public listings." />
+  <link rel="canonical" href="https://sharangan9812010.github.io/claude-backup-site/claude-export-tools-compared.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #FBFAF8;
+      --ink: #1F2933;
+      --muted: #5B6672;
+      --accent: #0F6B5C;
+      --hairline: #E3E0DA;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 5rem;
+    }
+    h1, h2, h3 {
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    h1 { font-size: 2rem; font-weight: 700; margin: 0 0 .35rem; }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 2.4rem 0 .6rem; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 1.8rem 0 .4rem; }
+    .meta { color: var(--muted); font-size: .95rem; margin-bottom: 2rem; }
+    .summary {
+      border-left: 3px solid var(--accent);
+      background: #F1F0EC;
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 0 0 2.25rem;
+    }
+    .summary p { margin: .4rem 0; }
+    .summary strong { color: var(--accent); }
+    p { margin: .75rem 0; }
+    ul, ol { padding-left: 1.25rem; margin: .5rem 0 1rem; }
+    li { margin: .35rem 0; }
+    hr { border: none; border-top: 1px solid var(--hairline); margin: 2.5rem 0; }
+    a { color: var(--accent); }
+    .footer { color: var(--muted); font-size: .9rem; margin-top: 3rem; }
+    .tablewrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+    table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+    th, td { border: 1px solid var(--hairline); padding: .5rem .65rem; text-align: left; vertical-align: top; }
+    th { background: #F1F0EC; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Claude export and backup tools compared (July 2026)</h1>
+    <p class="meta">Last updated: 27 July 2026</p>
+
+    <p>If you use Claude seriously, sooner or later you want your work out of it: conversations, projects, the knowledge files you uploaded, the artifacts Claude built for you. Claude does not offer a full project export from its interface, so a small ecosystem of browser extensions has grown to fill the gap. This page compares them honestly.</p>
+
+    <p>Full disclosure up front: I built one of the tools below, Backup for Claude. Everything here sticks to checkable facts taken from each product's own public listing or repository as of late July 2026, and where a competitor is the better choice for your situation, this page says so plainly. Corrections are welcome at <a href="mailto:claudebackup.support@gmail.com">claudebackup.support@gmail.com</a>.</p>
+
+    <h2>The quick answer</h2>
+    <p><strong>If you want one conversation as a polished PDF or Word file</strong>, several free tools do this well. AI Exporter is the most established, with support for ten or more AI platforms.</p>
+    <p><strong>If you want an open source option</strong>, AI Chat Exporter is MPL licensed and runs on Chrome, Edge, Brave and Firefox, exporting chats from many AI platforms to Markdown or JSON.</p>
+    <p><strong>If you want your whole Claude account backed up</strong>, projects with their instructions and knowledge files, artifacts saved as real files, every conversation inside and outside projects in one ZIP, Backup for Claude is currently the only tool that does this. As of July 2026 no other extension surveyed mentions Claude projects at all.</p>
+
+    <h2>Comparison table</h2>
+    <div class="tablewrap">
+      <table>
+        <tr>
+          <th></th>
+          <th>Backup for Claude</th>
+          <th>AI Exporter</th>
+          <th>AI Chat Exporter and Migrator</th>
+          <th>Claude Chat Backup</th>
+          <th>AI Chat Exporter (open source)</th>
+        </tr>
+        <tr>
+          <th>Focus</th>
+          <td>Claude only, whole account</td>
+          <td>10+ AI platforms</td>
+          <td>10+ AI platforms, migration</td>
+          <td>Claude only, conversations</td>
+          <td>Many AI platforms</td>
+        </tr>
+        <tr>
+          <th>Free tier</th>
+          <td>Yes: one project export plus any open conversation</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>Fully free</td>
+        </tr>
+        <tr>
+          <th>Paid model</th>
+          <td>4.99 USD one time</td>
+          <td>Freemium</td>
+          <td>Freemium, in app purchases</td>
+          <td>Unknown</td>
+          <td>None, open source</td>
+        </tr>
+        <tr>
+          <th>Claude projects (instructions and knowledge files)</th>
+          <td>Yes</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <th>Artifacts saved as real files</th>
+          <td>Yes, final edited state</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <th>One click full account backup</th>
+          <td>Yes (Pro)</td>
+          <td>No</td>
+          <td>Bulk export of chats</td>
+          <td>All conversations to JSON</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <th>Formats</th>
+          <td>Markdown, JSON, ZIP</td>
+          <td>PDF, Word, Markdown, JSON, image, Notion</td>
+          <td>PDF, Markdown, JSON, Word, HTML, Notion, Obsidian</td>
+          <td>JSON</td>
+          <td>Markdown, JSON</td>
+        </tr>
+        <tr>
+          <th>PDF export</th>
+          <td>Not yet</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <th>Browsers</th>
+          <td>Chrome (and Chromium browsers)</td>
+          <td>Chrome</td>
+          <td>Chrome</td>
+          <td>Chrome and Firefox</td>
+          <td>Chrome, Edge, Brave, Firefox</td>
+        </tr>
+        <tr>
+          <th>Open source</th>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Yes, MPL 2.0</td>
+        </tr>
+        <tr>
+          <th>Data collection disclosed on store listing</th>
+          <td>None</td>
+          <td>Personally identifiable information, user activity</td>
+          <td>Personally identifiable information, personal communications</td>
+          <td>Not checked</td>
+          <td>Not applicable</td>
+        </tr>
+        <tr>
+          <th>Store trader status</th>
+          <td>Verified trader with registered business address</td>
+          <td>Non trader</td>
+          <td>Non trader</td>
+          <td>Not checked</td>
+          <td>Not applicable</td>
+        </tr>
+      </table>
+    </div>
+    <p>Figures and disclosures above are taken from each product's public Chrome Web Store listing or repository in late July 2026 and may change.</p>
+
+    <h2>The tools in a little more depth</h2>
+
+    <h3>AI Exporter</h3>
+    <p>The category leader: around one hundred thousand users, a 4.8 star rating across roughly 1,500 reviews, and support for ten or more AI platforms including ChatGPT, Claude, Gemini and NotebookLM. Strong PDF layout, Notion sync, template styling, LaTeX handling. If your need is exporting individual conversations across several AI tools into polished documents, this is the mature choice and this page happily recommends it for that.</p>
+    <p>What it does not do: Claude projects. No project instructions, no project knowledge files, no artifacts as files, no whole account backup.</p>
+
+    <h3>AI Chat Exporter and Migrator</h3>
+    <p>The most actively developed of the multi platform tools, with a focus on moving conversations between AI assistants and continuing them elsewhere, plus Notion and Obsidian sync and bulk export with resumable progress. Eighteen listing languages. If migration between AI platforms is your actual problem, this is built for exactly that.</p>
+    <p>One factual note worth knowing: its store listing discloses collecting personally identifiable information and personal communications. That is printed on its own Chrome Web Store privacy tab, beneath marketing that describes the product as local. Read the privacy tab of any extension you give access to your AI conversations, this one and mine included.</p>
+
+    <h3>Claude Chat Backup</h3>
+    <p>A Claude specific tool that backs up all your conversations into a single JSON file, with one click and automatic options, available for Chrome and Firefox. If all you want is a raw JSON dump of your chats and you use Firefox, it is worth a look. It does not cover projects, knowledge files or artifacts, and JSON alone is not pleasant to read back.</p>
+
+    <h3>AI Chat Exporter (open source)</h3>
+    <p>A free, MPL 2.0 licensed extension for Chrome, Edge, Brave and Firefox that exports chats from ChatGPT, Claude, Gemini, Qwen, Perplexity, DeepSeek and Meta AI to Markdown or JSON. If open source is a requirement for you, this is the one, and being able to read the code is a real trust advantage. Scope is single conversations, not projects or accounts.</p>
+
+    <h3>Others seen in the wild</h3>
+    <p>Google's AI Overview currently also surfaces a tool called LLMemory for backup related queries. I have not tested it and will not characterise it here. There are also several PDF only exporters for single Claude chats.</p>
+
+    <h3>Backup for Claude</h3>
+    <p>The tool I built, so weigh this section accordingly. It exists because nothing above touches Claude projects, and projects are where months of work actually live: the instructions you tuned, the knowledge files you uploaded, the artifacts Claude built and edited.</p>
+    <p>Free tier: export any single project as a clean Markdown transcript, and export whichever conversation you have open, inside or outside a project, as a Markdown file.</p>
+    <p>Pro, 4.99 USD one time, no subscription: back up everything in one ZIP. Every project as a folder with its instructions, knowledge files, conversations and artifacts, every loose conversation in its own folder, complete JSON including full conversation trees and thinking blocks, artifacts reconstructed to their final edited state as real files, and a manifest that lets you verify the backup is complete.</p>
+    <p>Everything runs locally in your browser. No servers, no account, no analytics, and the store listing discloses no data collection because there is none. Exports are plain Markdown and JSON, so they drop straight into Obsidian, Notion or any notes app. What it does not do yet: PDF export, and browsers other than Chrome.</p>
+
+    <h2>What none of the chat exporters cover</h2>
+    <p>Worth spelling out, because it is the entire difference in scope. A Claude project is more than its chats. It has instructions you refined over weeks, knowledge files you uploaded, and artifacts, the documents and code Claude produced, often edited many times. A conversation exporter gives you transcripts. It does not give you the knowledge files back as files, does not give you the final edited artifacts as files, and does not capture which of your conversations belonged to which project. If your Claude usage is casual chat, that difference does not matter and a free exporter above will serve you well. If you have real work in projects, it is the whole point.</p>
+
+    <h2>Manual methods, honestly assessed</h2>
+    <p><strong>Copy and paste</strong> works for one short chat and fails at scale: artifacts have to be opened and copied one by one, formatting suffers, and branches are lost.</p>
+    <p><strong>Print to PDF</strong> from the browser gives you a readable snapshot of one conversation. Artifacts are not saved as usable files and you do it one chat at a time.</p>
+    <p><strong>Claude's interface</strong> offers no full project export as of July 2026. There is no built in way to get project knowledge files, instructions and artifacts out together.</p>
+
+    <h2>How to choose</h2>
+    <p><strong>You mainly use several AI tools and want tidy documents of individual chats</strong>: use AI Exporter, or the open source AI Chat Exporter if you prefer auditable code.</p>
+    <p><strong>You are moving from one AI platform to another</strong>: AI Chat Exporter and Migrator is built for that.</p>
+    <p><strong>You have months of work in Claude projects, or you want one button that backs up the entire account to files you own</strong>: Backup for Claude is currently the only option, which is exactly why I built it.</p>
+
+    <h2>Frequently asked questions</h2>
+    <p><strong>Does Claude have a built in export feature?</strong><br />
+    Not a full one. There is no way in the interface to export a project with its knowledge files, instructions and artifacts, and no one click backup of the account as files.</p>
+    <p><strong>Is it safe to give an extension access to claude.ai?</strong><br />
+    Treat it like any access decision. Read the Privacy practices tab on the store listing and see what data collection is disclosed. Prefer tools that process everything locally. Check the permissions requested. Check whether the developer updates the tool and answers support email. Those checks apply to every tool on this page, including mine.</p>
+    <p><strong>Will these tools break when Claude changes?</strong><br />
+    Eventually, yes, all of them. Every unofficial tool depends on Claude's internal behaviour, which Anthropic changes without notice. A format change in May 2026 broke several exporters at once. The question to ask of any tool is how fast its developer notices and ships a fix.</p>
+    <p><strong>Can I get my exports into Obsidian or Notion?</strong><br />
+    Tools that export plain Markdown, including Backup for Claude and the open source exporter, drop straight into Obsidian or any notes app. AI Exporter and AI Chat Exporter and Migrator offer direct Notion sync.</p>
+
+    <hr />
+    <p class="footer">Written and maintained by the developer of Backup for Claude. Last checked against public listings in late July 2026. If anything above is out of date or unfair, email <a href="mailto:claudebackup.support@gmail.com">claudebackup.support@gmail.com</a> and it will be fixed.</p>
+    <p class="footer">Related: <a href="how-to-export-claude-projects.html">How to export your Claude projects</a> &middot; <a href="move-claude-projects-to-chatgpt.html">How to move your Claude projects to ChatGPT</a> &middot; <a href="index.html">Privacy policy</a><br />
+    Backup for Claude is an independent tool. It is not affiliated with, endorsed by, or sponsored by Anthropic. Claude is a trademark of Anthropic, PBC.</p>
+  </main>
+</body>
+</html>
